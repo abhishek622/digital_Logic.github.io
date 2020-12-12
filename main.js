@@ -1,53 +1,61 @@
 Find.addEventListener('click', (e) => {
     e.preventDefault();
-    var a = document.getElementById("num1").value;
-    var b = document.getElementById("num2").value;
+    var x = document.getElementById("num1").value;
+    var y = document.getElementById("num2").value;
     var opt = document.getElementById('operation').value;
-    var x = parseInt(a, 2);
-    var y = parseInt(b, 2);
-    var src = "";
     if (opt == "add") {
-        var sum = x + y;
-        var ans = sum.toString(2);
+        var s1 = todec(x) + todec(y);
     }
     else if (opt == "sub") {
-        var sub = x - y;
-        var ans = sub.toString(2);
+        var s1 = todec(x) - todec(y);
     }
     else if (opt == "mul") {
-        var mul = x * y;
-        var ans = mul.toString(2);
+        var s1 = todec(x) * todec(y);
     }
     else if (opt == "div") {
         if (y) {
-            var div = x / y;
-            var ans = div.toString(2);
+            var s1 = todec(x) / todec(y);
         }
     }
-    src = ans;
-    if (opt == "div") {
-        document.getElementById("bin").innerHTML = parseFloat(src);
-        document.getElementById("dec").innerHTML = toDecimal(src);
-    }
-    else {
-        document.getElementById("bin").innerHTML = src;
-        document.getElementById("dec").innerHTML = parseInt(src, 2).toString(10);
-    }
+    document.getElementById("bin").innerHTML = tobase(s1);
+    document.getElementById("dec").innerHTML = s1;
 });
 
-function toDecimal(string) {
-    radix = 2;
-    var s = string.split('.');
-    var decimal = parseInt(s[0], radix);
+//addtion
+function tobase(input) {
+    var w = Math.trunc(input);
+    var deci = Number(w);
+    var a = (deci >>> 0).toString(2);
+    var frac = input - w;
+    var b = frac2bin(frac);
+    return a + "." + b;
+}
 
-    if (s.length > 1) {
-        var fract = s[1].split('');
-
-        for (var i = 0, div = radix; i < fract.length; i++, div = div * radix) {
-            decimal = decimal + fract[i] / div;
+function frac2bin(input) {
+    //If input is 0
+    if (input === 0) return '' + input;
+    // To limit the while loop in case of recurring decimals e.g. 0.1
+    var limit = 0;
+    var bin = '';
+    //Calculate the binary representation
+    while (input !== 0 && limit < 8) {
+        input = input * 2;
+        if (input >= 1) {
+            bin = bin + '1';
+            input -= 1;
         }
+        else bin = bin + '0';
+        limit++;
     }
-    return decimal;
+    return bin;
+}
+
+function todec(value, base = 2) {
+    var [integer, fraction = ''] = value.toString().split('.');
+
+    return parseInt(integer, base) + (integer[0] !== '-' || -1) * fraction
+        .split('')
+        .reduceRight((r, a) => (r + parseInt(a, base)) / base, 0);
 }
 
 //complement of a number

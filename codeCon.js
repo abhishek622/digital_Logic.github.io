@@ -1,3 +1,26 @@
+//BCD sum
+function getOpt() {
+    var x = document.getElementById("bcd_num1").value;
+    var y = document.getElementById("bcd_num2").value;
+    var opt = document.getElementById('optn').value;
+    if (opt == "inDec") {
+        var s1 = parseInt(x) + parseInt(y);
+        var l = s1.toString();
+        document.getElementById("bcd_ans").innerHTML = dec_bcd(l);
+        document.getElementById("dec_ans").innerHTML = s1;
+    }
+    else if (opt == "inBcd") {
+        var p1 = bcd_dec(x);
+        var p2 = bcd_dec(y);
+        var a1 = parseInt(p1) + parseInt(p2);
+        var k = a1.toString();
+        document.getElementById("bcd_ans").innerHTML = dec_bcd(k);
+        document.getElementById("dec_ans").innerHTML = a1;
+
+    }
+};
+
+
 //gray-bcd-decimal-binary
 
 //excess3 to others

@@ -142,45 +142,45 @@ function rComp(n, b) {
 
 //bcd addition
 
-function getOpt() {
-    var x = document.getElementById("bcd_num1").value;
-    var y = document.getElementById("bcd_num2").value;
-    document.getElementById("text_area").innerHTML = bcd_sum(x, y);
-};
+// function getOpt() {
+//     var x = document.getElementById("bcd_num1").value;
+//     var y = document.getElementById("bcd_num2").value;
+//     document.getElementById("text_area").innerHTML = bcd_sum(x, y);
+// };
 
-function bcd_sum(a, b) {
-    var x = a.split("");
-    var y = b.split("");
-    var res = [];
-    var s = 1;
-    var p = [];
-    var len = x.length;
-    for (i = 0; i < len; i++) {
-        res[i] = parseInt(x[i], 10) + parseInt(y[i], 10);
-        if (res[i] > 9) {
-            res[i] = parseInt(res[i], 10) + 6;
-        }
-        res[i] = (parseInt(res[i], 10).toString(2)).padStart(4, "0");
-    }
-    var arr1 = [];
-    for (i = 0; i < a.length; i++) {
-        arr1[i] = leftFillNum((parseInt(res[i], 10) % 10000), 4);
-    }
-    if (res[0].length == 5)
-        p[0] = 1;
-    else
-        p[0] = 0;
-    for (i = 0; i < len - 1; i++) {
-        if (res[i + 1].length == 5) {
-            var k = parseInt(arr1[i], 2) + 1;
-            p[i + 1] = (k.toString(2)).padStart(4, "0");
-        } else
-            p[i + 1] = arr1[i];
-    }
-    p[len] = arr1[len - 1];
-    jj = [];
-    for (i = 0; i < p.length; i++)
-        jj[i] = parseInt(p[i], 2).toString(10);
-    return "BCD : " + p.join(" ") + "\nDecimal : " + jj.join("");
-}
+// function bcd_sum(a, b) {
+//     var x = a.split("");
+//     var y = b.split("");
+//     var res = [];
+//     var s = 1;
+//     var p = [];
+//     var len = x.length;
+//     for (i = 0; i < len; i++) {
+//         res[i] = parseInt(x[i], 10) + parseInt(y[i], 10);
+//         if (res[i] > 9) {
+//             res[i] = parseInt(res[i], 10) + 6;
+//         }
+//         res[i] = (parseInt(res[i], 10).toString(2)).padStart(4, "0");
+//     }
+//     var arr1 = [];
+//     for (i = 0; i < a.length; i++) {
+//         arr1[i] = leftFillNum((parseInt(res[i], 10) % 10000), 4);
+//     }
+//     if (res[0].length == 5)
+//         p[0] = 1;
+//     else
+//         p[0] = 0;
+//     for (i = 0; i < len - 1; i++) {
+//         if (res[i + 1].length == 5) {
+//             var k = parseInt(arr1[i], 2) + 1;
+//             p[i + 1] = (k.toString(2)).padStart(4, "0");
+//         } else
+//             p[i + 1] = arr1[i];
+//     }
+//     p[len] = arr1[len - 1];
+//     jj = [];
+//     for (i = 0; i < p.length; i++)
+//         jj[i] = parseInt(p[i], 2).toString(10);
+//     return "BCD : " + p.join(" ") + "\nDecimal : " + jj.join("");
+// }
 

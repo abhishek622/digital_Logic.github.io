@@ -281,7 +281,6 @@
                 </table>
                 <hr>
                 <h5 class="card-title">BCD Sum</h5>
-                <p class="text-muted small">*Enter number in Decimal</p>
                 <form onsubmit="return false">
                     <div class="form-group">
                         <label for="bcd_num1">Enter num1</label>
@@ -291,11 +290,35 @@
                         <label for="bcd_num2">Enter num2</label>
                         <input type="number" class="form-control shadow-sm rounded" id="bcd_num2">
                     </div>
-                    <input class="btn btn-dark btn-block shadow rounded" onclick="getOpt()" type="submit" value="Sum">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <select class=" form-control custom-select shadow-sm rounded" id="optn">
+                                <option value="inDec">Input Decimal</option>
+                                <option value="inBcd">Input BCD</option>
+                            </select>
+                        </div>
+                        <div class="form-group col">
+                            <input class="btn btn-dark btn-block shadow rounded" onclick="getOpt()" type="submit"
+                                value="Sum">
+                        </div>
+                    </div>
                     <br>
                     <div class="form-group">
-                        <label for="text_area">Output</label>
-                        <textarea class="form-control shadow-sm rounded" id="text_area" rows="2"></textarea>
+                        <label for="output">Output</label>
+                        <div class="input-group shadow-sm rounded">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">BCD</div>
+                            </div>
+                            <textarea class="form-control" id="bcd_ans" rows="1"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group shadow-sm rounded">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Dec</div>
+                            </div>
+                            <textarea class="form-control" id="dec_ans" rows="1"></textarea>
+                        </div>
                     </div>
                 </form>
                 <hr>

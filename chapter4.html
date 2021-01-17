@@ -31,20 +31,73 @@
                 <li class="nav-item">
                     <a class="nav-link active">CHAPTER-4</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="chapter5.html">CHAPTER-5</a>
+                </li>
             </ul>
         </div>
     </nav>
     <br>
-    <!-- main-content -->
-    <div class="col justify-content-center bg-danger text-white m-auto">
-        <h5 class="card-header text-center display-4">Work in progress....</h5>
-    </div>
-    <br>
+   <!-- main-content -->
     <div class="col-lg-6 justify-content-center m-auto">
         <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Combinational circuit design</h5>
         <div class="card m-3">
             <div class="card-body">
-
+                <p class="text-monospace font-weight-bold">Procedure –</p>
+                <ol>
+                    <li>Identify the number of inputs and outputs of the circuit..</li>
+                    <li>Creating the Truth Table.</li>
+                    <li>Simplify the Boolean function for each output.</li>
+                    <li>Constructing circuit using Boolean function obtained from third step.</li>
+                </ol>
+                <p class="text-monospace font-weight-bold">Example - </p>
+                <p><strong>Q) </strong>we have to create a circuit that can add two bits.</p>
+                <p><strong>Step 1: </strong>we require two inputs (A, B) and two outputs one for sum (S) of two bits and
+                    another for carry (C).</p>
+                <p><strong>Step 2:</strong><br>
+                <table class="table table-sm text-center table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">AB</th>
+                            <th scope="col">Sum</th>
+                            <th scope="col">Carry</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">00</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">01</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </p>
+                <p><strong>Step 3: </strong><br>
+                    &emsp;&emsp; For Sum, <br>
+                    &emsp;&emsp; &emsp;<strong>Sum</strong> = A'B + AB' = A XOR B <br>
+                    &emsp;&emsp; For Carry, <br>
+                    &emsp;&emsp; &emsp;<strong>Carry</strong> = AB = A AND B
+                </p>
+                <p><strong>Step 4:</strong><br>
+                    <img style="max-width: 230px;"
+                        src="https://media.geeksforgeeks.org/wp-content/uploads/20190710232625/1534820887.png"
+                        class="card-img" alt="...">
+                </p>
             </div>
         </div>
     </div>
@@ -95,7 +148,7 @@
                     </tbody>
                 </table>
                 <p class="font-weight-bold">Simplified Boolean functions </p>
-                <p class="text-monospace">SUM = A'B + AB' or A &#x22bb; B <br>CARRY = AB</p>
+                <p class="text-monospace">SUM = A'B+AB' or A&#x2295;B <br>CARRY = AB</p>
                 <p class="font-weight-bold">Implementation</p>
                 <img src="https://www.ahirlabs.com/wp-content/uploads/2017/06/HALF_ADDER-768x349.png" class="card-img"
                     alt="...">
@@ -182,8 +235,7 @@
                     </tbody>
                 </table>
                 <p class="font-weight-bold">Simplified Boolean functions </p>
-                <p class="text-monospace">SUM = A'B'C + A'BC' + AB'C' + ABC or A &#x22bb; B &#x22bb; C <br>CARRY = AB +
-                    AC + BC</p>
+                <p class="text-monospace">SUM = A'B'C+A'BC'+AB'C'+ABC or A&#x2295;B&#x2295;C <br>CARRY = AB+AC+BC</p>
                 <p class="font-weight-bold">Implementation</p>
                 <img src="https://www.ahirlabs.com/wp-content/uploads/2017/06/Full_Adder-768x389.png" class="card-img"
                     alt="...">
@@ -243,7 +295,7 @@
                     </tbody>
                 </table>
                 <p class="font-weight-bold">Simplified Boolean functions </p>
-                <p class="text-monospace">DIFF = A'B + AB' or A &#x22bb; B <br>BORROW = A'B</p>
+                <p class="text-monospace">DIFF = A'B+AB' or A&#x2295;B <br>BORROW = A'B</p>
                 <p class="font-weight-bold">Implementation</p>
                 <img src="https://www.ahirlabs.com/wp-content/uploads/2017/06/HALF_Subtractor-768x248.png"
                     class="card-img" alt="...">
@@ -330,8 +382,8 @@
                     </tbody>
                 </table>
                 <p class="font-weight-bold">Simplified Boolean functions </p>
-                <p class="text-monospace">DIFF = A'B'C + A'BC' + AB'C' + ABC or A &#x22bb; B &#x22bb; C <br>BORROW = A'B
-                    + A'C + BC</p>
+                <p class="text-monospace">DIFF = A'B'C+A'BC'+AB'C'+ABC or A&#x2295;B&#x2295;C <br>BORROW = A'B+A'C+BC
+                </p>
                 <p class="font-weight-bold">Implementation</p>
                 <img src="https://www.ahirlabs.com/wp-content/uploads/2017/06/Full_Subtractor-768x279.png"
                     class="card-img" alt="...">
@@ -348,23 +400,417 @@
         <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Binary Parallel adder</h5>
         <div class="card m-3">
             <div class="card-body">
-
+                <p><strong> Parallel Adder</strong> is a digital circuit capable of finding the arithmetic
+                    <strong>sum</strong> of two
+                    binary numbers that is <strong>greater than one bit </strong> in length by operating on
+                    corresponding pairs of bits in
+                    parallel
+                </p>
+                <p>Addition of <strong> n-bit numbers </strong> requires a chain of <strong> n full adders </strong> or
+                    a <strong> chain of one-half
+                        adder </strong> and <strong> n - 1 full adders</strong>.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/full_adder.png" class="card-img"
+                    alt="...">
+                <p class="font-weight-bold">Advantages of parallel Adder</p>
+                <ol>
+                    <li>The parallel adder performs the addition operation faster as compared to serial adder.</li>
+                    <li>Time required for addition does not depend on the number of bits.</li>
+                    <li>The output is in parallel form i.e all the bits are added at the same time.</li>
+                </ol>
+                <p class="font-weight-bold">Disadvantages of parallel Adder</p>
+                <ol>
+                    <li>Each adder has to wait for the carry which is to be generated from the previous adder in chain.
+                    </li>
+                    <li>The propagation delay( delay associated with the travelling of carry bit) is found to increase
+                        with the increase in the number of bits to be added.</li>
+                </ol>
             </div>
         </div>
     </div>
     <div class="col-lg-6 justify-content-center m-auto">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Decimal Adder</h5>
+        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Parity Generator and Checker</h5>
         <div class="card m-3">
             <div class="card-body">
+                <p>The parity generating technique is one of the most widely used error detection techniques for the
+                    data transmission.</p>
+                <p>The basic principle involved in the implementation of parity circuits is that sum of odd number of 1s
+                    is always 1 and sum of even number of 1s is always zero.</p>
+                <br>
+                <p class="font-weight-bold">Parity Generator</p>
+                <p>It is combinational circuit that accepts an n-1 bit stream data and generates the additional bit that
+                    is to be transmitted with the bit stream. </p>
 
+                <p> In <strong> even parity </strong> bit scheme, the parity bit is <strong>‘0’</strong> if
+                    there are <strong>even number of 1s</strong> in the data
+                    stream and the parity bit is <strong>‘1’</strong> if there are <strong>odd number of
+                        1s</strong> in the data stream.</p>
+
+                <p>In <strong>odd parity</strong> bit scheme, the parity bit is <strong>‘1’</strong> if there
+                    are <strong>even number of 1s</strong> in the data
+                    stream and the parity bit is <strong>‘0’</strong> if there are <strong>odd number of
+                        1s</strong> in the data stream. Let us
+                    discuss both even and odd parity generators.</p>
+
+                <p class="text-monospace font-weight-bold">Truth table - </p>
+                <table class="table table-bordered table-striped text-center table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">3-bit message</th>
+                            <th scope="col">Even parity bit</th>
+                            <th scope="col">Odd parity bit</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">ABC</th>
+                            <th scope="col">P</th>
+                            <th scope="col">P</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>000</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>001</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>010</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>011</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>100</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>101</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>110</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>111</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <p class="text-monospace font-weight-bold text-center">(Even) P = A &#x2295; B &#x2295; C</p>
+                <img src="https://www.electronicshub.org/wp-content/uploads/2015/07/Even-Parity-Generator-Logic-Circuit.jpg"
+                    class="card-img" alt="...">
+                <hr>
+                <p class="text-monospace font-weight-bold text-center">(Odd) P = A &#x2295; B <strong>Ex-NOR</strong> C
+                </p>
+                <img src="https://www.electronicshub.org/wp-content/uploads/2015/07/Odd-Parity-Checker-Logic-Circuit.jpg"
+                    class="card-img" alt="...">
+                <br><br>
+                <p class="font-weight-bold">Parity Checker</p>
+                <p class="text-monospace font-weight-bold">Even Parity Checker </p>
+                <table class="table table-bordered text-center table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th colspan="2" scope="col">4-bit message</th>
+                            <th scope="col">Parity check</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">ABC</th>
+                            <th scope="col">P</th>
+                            <th scope="col">Cp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>000</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>000</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>001</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>001</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>010</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>010</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>011</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>011</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>100</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>100</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>101</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>101</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>110</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>110</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>111</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>111</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-monospace font-weight-bold text-center">(Even) Cp = (A &#x2295; B) &#x2295; (C &#x2295;
+                    P)
+                </p>
+                <img src="https://www.electronicshub.org/wp-content/uploads/2015/07/Even-Parity-Checker-Logic-Circuit.jpg"
+                    class="card-img" alt="...">
+                <hr>
+                <p class="text-monospace font-weight-bold">Odd Parity Checker </p>
+                <table class="table table-bordered text-center table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th colspan="2" scope="col">4-bit message</th>
+                            <th scope="col">Parity check</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">ABC</th>
+                            <th scope="col">P</th>
+                            <th scope="col">Cp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>000</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>000</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>001</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>001</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>010</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>010</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>011</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>011</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>100</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>100</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>101</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>101</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>110</th>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th>110</th>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>111</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>111</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-monospace font-weight-bold text-center">(Odd) Cp = (A Ex-NOR B) Ex-NOR (C Ex-NOR P)
+                </p>
+                <img src="https://www.electronicshub.org/wp-content/uploads/2015/07/Odd-Parity-Checker-Logic-Circuit1.jpg"
+                    class="card-img" alt="...">
             </div>
         </div>
     </div>
+
     <div class="col-lg-6 justify-content-center m-auto">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Decoders</h5>
+        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Array multiplier</h5>
         <div class="card m-3">
             <div class="card-body">
+                <p>An <strong>array multiplier</strong> is a digital combinational circuit used for multiplying two
+                    binary numbers by employing an array of full adders and half adders.
+                </p>
+                <p class="text-monospace font-weight-bold">Example - </p>
+                <img style="max-width: 220px;"
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/20191224122857/Untitled-Diagram-130-1.jpg"
+                    class="card-img" alt="...">
+                <p class="text-monospace font-weight-bold">product term P can be written as:-</p>
+                <ol>
+                    <li>P(0)= a0b0</li>
+                    <li>P(1)= a1b0 + b1a0</li>
+                    <li>P(2) = a1b1 + c1 where c1 is the carry generated during the addition for the P(1) term.</li>
+                    <li>P(3) = c2 where c2 is the carry generated during the addition for the P(2) term.</li>
+                </ol>
+                <p class="text-monospace font-weight-bold">combinational circuit -</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20191217174410/2-bit-by-2-bit-array-multiplier.jpg"
+                    class="card-img" alt="...">
+                <p class="font-italic"><strong>****</strong><br>
+                    &emsp;For J is multiplier bit and K is multiplicant then, <br>
+                    &emsp;&emsp;- Number of AND gate = JxK req. <br>
+                    &emsp;&emsp;- Number of adder = (J-1)K req. <br>
+                    &emsp;&emsp;- Final product consist of J+K bits terms. <br>
+                </p>
+                <p class="text-right font-italic"><strong>****</strong></p>
+            </div>
+        </div>
+    </div>
 
+    <div class="col-lg-6 justify-content-center m-auto">
+        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Decoders & Encoder</h5>
+        <div class="card m-3">
+            <div class="card-body">
+                <p class="font-weight-bold">Decoders</p>
+                <p>A <strong>decoder</strong> is a <strong>combinational circuit</strong> that converts binary
+                    information from <strong>n input lines</strong> to a maximum
+                    of <strong>2^n unique output lines</strong>.</p>
+                <p class="text-monospace font-weight-bold">2 : 4 Binary Decoder –</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/decoder-1.jpg" alt="">
+                <p class="text-monospace">Truth Table:</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/decoder-truth-table.jpg"
+                    alt=""><br>
+                <p class="text-monospace">Logical expression :</p>
+                <p><strong>Q0</strong> = A’B’ <br><strong>Q1</strong> = A’B <br><strong>Q2</strong> = AB’
+                    <br><strong>Q3</strong> = AB
+                </p>
+                <p class="text-monospace">Implemented: </p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/decoder-2x4.jpg" alt="">
+                <br>
+                <p class="font-weight-bold">Encoders</p>
+                <p>An Encoder is a <strong>combinational circuit</strong> that performs the reverse operation of
+                    Decoder.It has maximum
+                    of <strong>2^n input lines</strong> and <strong>‘n’ output lines</strong>.</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/Encoder-1.jpg" alt="">
+                <p class="text-monospace font-weight-bold">4 : 2 Encoder –</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/Encoder-4x2.jpg" alt="">
+                <p class="text-monospace">Truth table:</p>
+                <img class="card-img"
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/truth-table-4x2-encoder.jpg" alt="">
+                <p class="text-monospace">Logical expression for A1 and A0 :</p>
+                <p><strong>A1</strong> = Y3 + Y2 <br><strong>A0</strong> = Y3 + Y1</p>
+                <p class="text-monospace">Implemented using OR gates :</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/gate-4x2-encoder.jpg"
+                    alt="">
+                <hr>
+                <p class="text-monospace font-weight-bold">8 : 3 Encoder (Octal to Binary) –</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/Encoder-8x3.jpg" alt="">
+                <p class="text-monospace">Truth table </p>
+                <img class="card-img"
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/truth-table-8x3-encoder.jpg" alt="">
+                <p class="text-monospace ">Logical expression for A2, A1 and A0 :</p>
+                <p><strong>A2</strong> = Y7 + Y6 + Y5 + Y4 <br><strong>A1</strong> = Y7 + Y6 + Y3 + Y2
+                    <br><strong>A0</strong> = Y7 + Y5 + Y3 + Y1
+                </p>
+                <p class="text-monospace">Implemented using OR gates :</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/gate-8x3-encoder.jpg"
+                    alt="">
+                <p class="text-monospace font-weight-bold">Drawbacks of Normal Encoders –</p>
+                <ol>
+                    <li>There is an ambiguity, when all outputs of encoder are equal to zero. </li>
+                    <li>If more than one input is active High, then the encoder produces an output, which may not be the
+                        correct code.</li>
+                </ol>
             </div>
         </div>
     </div>
@@ -372,7 +818,55 @@
         <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Multiplexers</h5>
         <div class="card m-3">
             <div class="card-body">
-
+                <p>It is a combinational circuit which have many data inputs and single output depending on control or
+                    select inputs.​
+                    <br>
+                    Multiplexers are mainly used to increase amount of the data that can be sent over the network within
+                    certain amount of time and bandwidth.
+                </p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/1-78.png" alt="">
+                <p class="text-monospace">Truth table </p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/2-42.jpg" alt="">
+                <p class="text-monospace">Implemented using OR gates :</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/3-58.png" alt="">
+                <br>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item text-monospace font-weight-bold">
+                        <span class="badge badge-primary badge-pill">a</span> 4 : 1 MUX using 2 : 1 MUX
+                    </li>
+                    <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/11-9.png" alt="">
+                    <li class="list-group-item text-monospace font-weight-bold">
+                        <span class="badge badge-primary badge-pill">b</span> 16 : 1 MUX using 4 : 1 MUX
+                    </li>
+                    <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/12-4.png" alt="">
+                </ul>
+                <p class="text-monospace font-weight-bold">Solving multiplexer circuit –</p>
+                <ul>
+                    <li>Firstly truth table is constructed for the given multiplexer.</li>
+                    <li>Select lines in multiplexer are considered as input for the truth table.</li>
+                    <li>Output in truth table can be four forms i.e. ( 0, 1, Q, Q’).</li>
+                    <li>Now with the help of truth table we find the extended expression.</li>
+                    <li>Then the expression is minimized using boolean algebraic rules.</li>
+                    <li>Final function can be either in expression form or in SOP or POS form.</li>
+                </ul>
+                <p class="text-monospace">Example - </p>
+                <p>Given MUX,</p>
+                <img class="card-img" src="https://media.geeksforgeeks.org/wp-content/uploads/20200428151512/mux1-2.png"
+                    alt="">
+                <p><strong> Step 1:</strong> According to the circuit,<br>I1 = A <br>
+                    I2 = A' <br>
+                    I3 = 1 <br>
+                    I4 = 0 </p>
+                <img class="card-img justify-content-center" style="max-width: 220px;"
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/20200428151544/tt-11.png" alt="">
+                <p><strong>Step 2: </strong><br>
+                    f(A, B, C) = AB'C' + A'B'C + BC'.1 <br>
+                    &emsp;&emsp;&emsp;= AB'C' + A'B'C + BC'(A + A') <br>
+                    &emsp;&emsp;&emsp;= AB'C' + A'B'C + ABC' + A'BC' <br>
+                    &emsp;&emsp;&emsp;= 100&emsp;001&emsp;110&emsp;010 <br>
+                    &emsp;&emsp;&emsp;= m(1, 2, 4, 6)
+                </p>
             </div>
         </div>
     </div>

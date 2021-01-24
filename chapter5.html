@@ -500,37 +500,492 @@
     </div>
 
     <div class="col-lg-6 justify-content-center m-auto">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Register</h5>
+        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">RTL (Register Transfer Level) design</h5>
         <div class="card m-3">
             <div class="card-body">
+                <p>In the <strong> RTL Design</strong> methodology different types of registers such as
+                    <strong>Counters</strong>, <strong>Shift
+                        Register</strong>, <strong>SIPO</strong> (Serial In Parallel Out), <strong>PISO</strong>
+                    (Parallel In Serial Out) are used as the basic building blocks for
+                    any Sequential Logic Circuits.
+                </p>
+                <p class="text-monospace font-weight-bold">Example -</p>
+                <p>Step to design Up Counter (for 0-3):</p>
+                <ol>
+                    <li><strong>Step 1:</strong> the 1st step we draw a <strong> State Diagram</strong> representing the
+                        above sequential
+                        circuit.
+                        The State Diagram representing the above counter is shown below:</li>
+                    <img style="max-width: 220px;"
+                        src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram4.png" class="card-img"
+                        alt="">
+                    <li>
+                        <p><strong>Step 2:</strong> In the next step we derive the <strong> State Table</strong> from
+                            the
+                            above given State Diagram
+                            <br> The State Table is as given below:
+                        </p>
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Present State<br> Q(n)</th>
+                                    <th scope="col">Next State<br> Q(n+1)</th>
+                                    <th scope="col">Output</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>00</td>
+                                    <td>01</td>
+                                    <td>01</td>
+                                </tr>
+                                <tr>
+                                    <td>01</td>
+                                    <td>10</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>11</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>00</td>
+                                    <td>00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>
+                        <p><strong>Step 3:</strong> In the third step we need to choose the type of flip flop we will be
+                            using to store the state
+                            of the circuit, for simplicity, we will be considering the Positive Edge Triggered D-type
+                            Flip-Flop.We also need to determine the number of Flip-Flops required to represent the
+                            internal
+                            state of the circuit. The general formula for the number of Flip-Flops required:</p>
+                        <p>Then we need to note down the Excitation Table for chosen Flip-Flop. The Excitation Table for
+                            the D-type Flip-Flop is shown below:</p>
+                        <table class="table text-center">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Present State<br> Q(n)</th>
+                                    <th scope="col">Next State<br> Q(n+1)</th>
+                                    <th scope="col">D</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>X</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>X</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>
+                        <p><strong>Step 4:</strong> In this step we combine the State Table from the 2nd step with the
+                            excitation table of the previous step as follows:</p>
+                        <table class="table table-sm text-center">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Q<sub>A</sub>(n)</th>
+                                    <th scope="col">Q<sub>B</sub>(n)</th>
+                                    <th scope="col">Q<sub>A</sub>(n+1)</th>
+                                    <th scope="col">Q<sub>B</sub>(n+1)</th>
+                                    <th scope="col">D<sub>A</sub></th>
+                                    <th scope="col">D<sub>B</sub></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>
+                        <p><strong>Step 5:</strong>Next, from the above table we try to express D<sub>A</sub>,
+                            D<sub>B</sub> as boolean
+                            functions of Q<sub>A</sub>(n), Q<sub>B</sub>(n).
+                            In this case the expression for both D<sub>A</sub>, D<sub>B</sub> are trivial.</p>
+                        <div class="card bg-light">
+                            <div class="card-body font-weight-bold">
+                                D<sub>A</sub> = Q<sub>A</sub> &#x2295; Q<sub>B</sub>&emsp;&emsp;&emsp;D<sub>B</sub> =
+                                Q'<sub>B</sub>
+                            </div>
+                        </div>
+                        <p>The Final Sequential Circuit is shown below:</p>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram5.png"
+                            class="card-img" alt="">
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 justify-content-center m-auto">
+        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Register and Counters</h5>
+        <div class="card m-3">
+            <div class="card-body">
+                <p>A <strong>Counter</strong> is a device which stores (and sometimes displays) the number of times a
+                    particular event or process has occurred, often in relationship to a clock signal.</p>
+                <p class="font-weight-bold">Counter Classification</p>
+                <ol>
+                    <li>
+                        <p class="font-weight-bold">Asynchronous counter</p>
+                        <p>In asynchronous counter we don’t use universal clock, only first flip flop is driven by main
+                            clock and the clock input of rest of the following flip flop is driven by output of previous
+                            flip flops. We can understand it by following diagram-</p>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/counters-in-digital-logic.png"
+                            class="card-img" alt="">
+                    </li>
+                    <li>
+                        <p class="font-weight-bold">Synchronous counter</p>
+                        <p>Unlike the asynchronous counter, synchronous counter has one global clock which drives each
+                            flip flop so output changes in parallel. The one advantage of synchronous counter over
+                            asynchronous counter is, it can operate on higher frequency than asynchronous counter as it
+                            does not have cumulative delay because of same clock is given to each flip flop.</p>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/synchronous-counters.png"
+                            class="card-img" alt="">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/timing-diagram-synchronous-counter.png"
+                            class="card-img" alt="">
+                    </li>
+                </ol>
+                <br>
+                <hr>
+                <h6>Design counter for given sequence - </h6>
+                <p><strong>Problem</strong> Design synchronous counter for sequence: 0 → 1 → 3 → 4 → 5 → 7 → 0, using T
+                    flip-flop. </p>
+                <p><strong>Step-1:</strong>For given sequence, state transition diagram as following below:</p>
+                <img style="max-width: 200px;" src="https://media.geeksforgeeks.org/wp-content/uploads/77-2.png"
+                    class="card-img" alt=""> <br>
+                <p><strong>Step-2:</strong>State transition table for given sequence:</p>
+                <table class="table table-sm text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Q<sub>3</sub></th>
+                            <th scope="col">Q<sub>2</sub></th>
+                            <th scope="col">Q<sub>1</sub></th>
+                            <th scope="col">Q<sub>3</sub>(t+1)</th>
+                            <th scope="col">Q<sub>2</sub>(t+1)</th>
+                            <th scope="col">Q<sub>1</sub>(t+1)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table> <br>
+                <p><strong>Step-3:</strong>T flip-flop – If value of Q changes either from 0 to 1 or from 1 to 0 then
+                    input for T flip-flop is 1 else input value is 0.</p>
+                <table class="table table-sm text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Q<sub>t</sub></th>
+                            <th scope="col">Q<sub>t+1</sub></th>
+                            <th scope="col">T</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</th>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Draw input table of all T flip-flops by using the excitation table of T flip-flop. As nature of T
+                    flip-flop is toggle in nature. Here, Q3 as Most significant bit and Q1 as least significant bit.</p>
+                <table class="table table-sm text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" colspan="3">Input table of Flip-Flops</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">T<sub>3</sub></th>
+                            <th scope="col">T<sub>2</sub></th>
+                            <th scope="col">T<sub>1</sub></th>
+                        </tr>
+
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</th>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="card bg-light">
+                    <div class="card-body font-weight-bold">
+                        T<sub>3</sub> = Q<sub>2</sub>,&emsp;T<sub>2</sub> = Q<sub>1</sub>,&emsp;T<sub>1</sub> =
+                        Q'<sub>2</sub>
+                    </div>
+                </div><br>
+                <p><strong>Step-4:</strong>design required circuit using expressions of K-maps:</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190929143639/img39.png" class="card-img"
+                    alt="">
+                <br>
+                <h6>Ripple Counter</h6>
+                <p>A n-bit ripple counter can count up to 2<sup>n</sup> states. It is also known as MOD n counter. It is
+                    known as ripple counter because of the way the clock pulse ripples its way through the flip-flops.
+                    Some of the features of ripple counter are:
+                </p>
+                <ol>
+                    <li>It is an asynchronous counter. </li>
+                    <li>Different flip-flops are used with a different clock pulse. </li>
+                    <li>All the flip-flops are used in toggle mode. </li>
+                    <li>Only one flip-flop is applied with an external clock pulse and another flip-flop clock is
+                        obtained from the output of the previous flip-flop. </li>
+                    <li>The flip-flop applied with external clock pulse act as LSB (Least Significant Bit) in the
+                        counting sequence. </li>
+                </ol>
+                <p class="font-weight-bold text-monospace">A 3-bit Ripple counter using JK flip-flop –</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/33-3.jpg" class="card-img" alt="">
+                <p class="text-monospace">Truth Table –</p>
+                <table class="table table-sm text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Counter State</th>
+                            <th scope="col">Q<sub>2</sub></th>
+                            <th scope="col">Q<sub>1</sub></th>
+                            <th scope="col">Q<sub>0</sub></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-monospace">Timing diagram – </p>
+                <p>Let us assume that the clock is negative edge triggered so above counter will act as an up counter
+                    because the clock is negative edge triggered and output is taken from Q.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/ds54_clip_image004-1-300x127-1.jpg"
+                    class="card-img" alt="">
+                <br>
+                <hr>
+                <h6>Shift Registers</h6>
+                <p>The information stored within these registers can be transferred with the help of shift registers.
+                    <strong> Shift Register</strong> is a group of flip flops used to store multiple bits of data.
+                </p>
+                <p>Shift registers are basically of 4 types. These are: </p>
+                <ol>
+                    <li>Serial In Serial Out shift register</li>
+                    <li>Serial In parallel Out shift register</li>
+                    <li>Parallel In Serial Out shift register</li>
+                    <li>Parallel In parallel Out shift register</li>
+                </ol>
+                <br>
+                <p class="font-weight-bold">Serial-In Parallel-Out shift Register (SIPO) –</p>
+                <p> the register is loaded with serial data, one bit at a time, with the stored data being available at
+                    the output in parallel form.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop.png" class="card-img" alt="">
+                <p class="font-weight-bold">Serial-in to Serial-out (SISO) - </p>
+                <p> the data is shifted serially “IN” and “OUT” of the register, one bit at a time in either a left or
+                    right direction under clock control.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop1.png" class="card-img" alt="">
+                <p class="font-weight-bold">Parallel-In Serial-Out Shift Register (PISO) –</p>
+                <p>the parallel data is loaded into the register simultaneously and is shifted out of the register
+                    serially one bit at a time under clock control.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/FIL.jpg" class="card-img" alt="">
+                <p class="font-weight-bold">Parallel-In Parallel-Out Shift Register (PIPO) –</p>
+                <p>the parallel data is loaded simultaneously into the register, and transferred together to their
+                    respective outputs by the same clock pulse.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/FlipFlop2.png" class="card-img" alt="">
+                <br><br>
+                <p class="font-weight-bold text-monospace">Applications of shift Registers –</p>
+                <ul>
+                    <li>
+                        The shift registers are used for temporary data storage.
+                    </li>
+                    <li>
+                        The shift registers are also used for data transfer and data manipulation.
+                    </li>
+                    <li>
+                        The serial-in serial-out and parallel-in parallel-out shift registers are used to produce time
+                        delay to digital circuits.
+                    </li>
+                    <li>
+                        A Parallel in Serial out shift register us used to convert parallel data to serial data.
+                    </li>
+                </ul>
 
             </div>
         </div>
     </div>
 
     <div class="col-lg-6 justify-content-center m-auto">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Ripple Counter</h5>
         <div class="card m-3">
-            <div class="card-body">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-6 justify-content-center m-auto">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Design of Sync Counter</h5>
-        <div class="card m-3">
-            <div class="card-body">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-6 justify-content-center m-auto">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Memory</h5>
-        <div class="card m-3">
-            <div class="card-body">
-
+            <div
+                class="card-body font-weight-bold progress-bar progress-bar-striped progress-bar-animated bg-danger text-white">
+                <i>After coming this far I got bored so......</i>
             </div>
         </div>
     </div>

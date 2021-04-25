@@ -1,3 +1,7 @@
-# digital_Logic.github.io
+# digital_Logic
 
-https://abhishek622.github.io/digital_Logic.github.io/
+**3rd sem subject**
+
+- This website provide basic notes and calculator
+
+[visit website](https://abhishek622.github.io/digital_Logic.github.io/)

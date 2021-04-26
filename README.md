@@ -6,7 +6,8 @@
 
 [visit website](https://abhishek622.github.io/digital_Logic.github.io/)
 
-> Tech used
+> ### Tech used
+> 
 > -HTML
 > -JAVASCRIPT
 > -BOOTSTRAP

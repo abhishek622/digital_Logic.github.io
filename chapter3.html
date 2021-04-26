@@ -1,210 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
     <title>Chapter-3</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Digital Logic</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="index.html">Digital Logic</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="chapter1.html">CHAPTER-1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="chapter2.html">CHAPTER-2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active">CHAPTER-3</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="chapter4.html">CHAPTER-4</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="chapter5.html">CHAPTER-5</a>
-                </li>
-            </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="chapter1.html">CHAPTER-1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chapter2.html">CHAPTER-2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active">CHAPTER-3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chapter4.html">CHAPTER-4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chapter5.html">CHAPTER-5</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-    <br>
+    <br />
     <!-- main-content -->
     <div class="col-lg-6 justify-content-center m-auto" id="dcc">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Truth table generator</h5>
-        <div class="card m-3">
-            <div class="card-body">
-                <form onsubmit="return false">
-                    <p class="text-muted small">Use : &&(and), ||(or), !(not), ^(xor)</p>
-                    <div class="form-group row">
-                        <label for="vars" class="col-sm-4 col-form-label">Variables</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="vars" placeholder="a,b,c">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="expression" class="col-sm-4 col-form-label">Expressions</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="expression"
-                                placeholder="!( a || b || c ), (!a && !b && !c)">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-warning btn-block text-white" id="getResult">Generate truth
-                        table</button>
-                </form>
-                <br>
-                <div id="result"></div>
+      <h5 class="card-header shadow p-3 mb-2 bg-white rounded" id="ch3_t1">
+        Truth table generator
+      </h5>
+      <div class="card m-3">
+        <div class="card-body">
+          <form onsubmit="return false">
+            <p class="text-muted small">
+              Use : &&(and), ||(or), !(not), ^(xor)
+            </p>
+            <div class="form-group row">
+              <label for="vars" class="col-sm-4 col-form-label"
+                >Variables</label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="vars"
+                  placeholder="a,b,c"
+                />
+              </div>
             </div>
+            <div class="form-group row">
+              <label for="expression" class="col-sm-4 col-form-label"
+                >Expressions</label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="expression"
+                  placeholder="!( a || b || c ), (!a && !b && !c)"
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-warning btn-block text-white"
+              id="getResult"
+            >
+              Generate truth table
+            </button>
+          </form>
+          <br />
+          <div id="result"></div>
         </div>
+      </div>
     </div>
 
     <div class="col-lg-6 justify-content-center m-auto" id="kmap">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">K Map</h5>
-        <div class="card m-3">
+      <h5 class="card-header shadow p-3 mb-2 bg-white rounded" id="ch3_t2">
+        K Map
+      </h5>
+      <div class="card m-3">
+        <div class="card-body">
+          <a
+            class="btn btn-success btn-block"
+            href="https://www.charlie-coleman.com/experiments/kmap/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >K-map solver</a
+          >
+          <br />
+          <div class="card">
             <div class="card-body">
-                <a class="btn btn-success btn-block" href="https://www.charlie-coleman.com/experiments/kmap/"
-                    target="_blank" rel="noopener noreferrer">K-map solver</a>
-                <br>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">2 variable k-map</h5>
-                    </div>
-                    <img src="https://ittimepass.files.wordpress.com/2017/02/2-k-map.png" class="card-img-bottom"
-                        alt="2 var k-map">
-                </div>
-                <br>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">3 variable k-map</h5>
-                    </div>
-                    <img src="https://ittimepass.files.wordpress.com/2017/02/3-k-map.png" class="card-img-bottom"
-                        alt="3 var k-map">
-                </div>
-                <br>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">4 variable k-map</h5>
-                    </div>
-                    <img src="https://ittimepass.files.wordpress.com/2017/02/4-k-map.png" class="card-img-bottom"
-                        alt="3 var k-map">
-                </div>
+              <h5 class="card-title text-center">2 variable k-map</h5>
             </div>
+            <img
+              src="https://ittimepass.files.wordpress.com/2017/02/2-k-map.png"
+              class="card-img-bottom"
+              alt="2 var k-map"
+            />
+          </div>
+          <br />
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">3 variable k-map</h5>
+            </div>
+            <img
+              src="https://ittimepass.files.wordpress.com/2017/02/3-k-map.png"
+              class="card-img-bottom"
+              alt="3 var k-map"
+            />
+          </div>
+          <br />
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">4 variable k-map</h5>
+            </div>
+            <img
+              src="https://ittimepass.files.wordpress.com/2017/02/4-k-map.png"
+              class="card-img-bottom"
+              alt="3 var k-map"
+            />
+          </div>
         </div>
+      </div>
     </div>
     <div class="col-lg-6 justify-content-center m-auto" id="dcc">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">Don’t care conditions</h5>
-        <div class="card m-3">
-            <div class="card-body">
-                <p>The <strong>don't care combinations</strong> in the K-Map are denoted by an <strong>X
-                        (cross)</strong> symbol</p>
-                <p class="text-monospace">While designing K-Map using <strong>SOP form</strong>, don't care conditions
-                    (X) are considered
-                    as 1, if it helps form the largest group, otherwise it is considered as 0 and are left during
-                    encircling.</p>
-                <p class="text-monospace">While designing a K-Map using <strong>POS form</strong>, don't care conditions
-                    (X) are
-                    considered as a 0, if it helps form the largest group, otherwise it is considered as 1 and are left
-                    during encircling.</p>
-            </div>
+      <h5 class="card-header shadow p-3 mb-2 bg-white rounded" id="ch3_t3">
+        Don’t care conditions
+      </h5>
+      <div class="card m-3">
+        <div class="card-body">
+          <p>
+            The <strong>don't care combinations</strong> in the K-Map are
+            denoted by an <strong>X (cross)</strong> symbol
+          </p>
+          <p class="text-monospace">
+            While designing K-Map using <strong>SOP form</strong>, don't care
+            conditions (X) are considered as 1, if it helps form the largest
+            group, otherwise it is considered as 0 and are left during
+            encircling.
+          </p>
+          <p class="text-monospace">
+            While designing a K-Map using <strong>POS form</strong>, don't care
+            conditions (X) are considered as a 0, if it helps form the largest
+            group, otherwise it is considered as 1 and are left during
+            encircling.
+          </p>
         </div>
+      </div>
     </div>
     <div class="col-lg-6 justify-content-center m-auto" id="sopimp">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">SOP/POS implementation using NAND</h5>
-        <div class="card m-3">
-            <div class="card-body">
-                <h6>Steps: </h6>
-                <ol>
-                    <li>First draw the circuit in SOP/POS form.</li>
-                    <li>Add circle at the output of each AND gate and input of each OR gate.</li>
-                    <li>Add or Subtract an inverter on ecah line that recives a circle in step 2.</li>
-                    <li>Eleminate the double inversion.</li>
-                    <li>Replace all bubble OR gate with NAND gate.</li>
-                </ol>
-                <br>
-                <p><strong>Example - </strong></p>
-                <p>F (A, B, C, D, E) = A + (B’ + C) (D’ + BE’)</p>
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://www.electronicshub.org/wp-content/uploads/2015/08/6.NAND1_.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-block text-right">
-                                <h5 style="color: black;">STEP - 1</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.electronicshub.org/wp-content/uploads/2015/08/7.NAND2_.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-block text-right">
-                                <h5 style="color: black;">STEP - 2</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.electronicshub.org/wp-content/uploads/2015/08/8.NAND3_.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-block text-right">
-                                <h5 style="color: black;">STEP - 3,4</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.electronicshub.org/wp-content/uploads/2015/08/10.NAND5_.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-block text-right">
-                                <h5></h5>
-                                <h5 style="color: black;">STEP - 5</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+      <h5 class="card-header shadow p-3 mb-2 bg-white rounded" id="ch3_t4">
+        SOP/POS implementation using NAND
+      </h5>
+      <div class="card m-3">
+        <div class="card-body">
+          <h6>Steps:</h6>
+          <ol>
+            <li>First draw the circuit in SOP/POS form.</li>
+            <li>
+              Add circle at the output of each AND gate and input of each OR
+              gate.
+            </li>
+            <li>
+              Add or Subtract an inverter on ecah line that recives a circle in
+              step 2.
+            </li>
+            <li>Eleminate the double inversion.</li>
+            <li>Replace all bubble OR gate with NAND gate.</li>
+          </ol>
+          <br />
+          <p><strong>Example - </strong></p>
+          <p>F (A, B, C, D, E) = A + (B’ + C) (D’ + BE’)</p>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://www.electronicshub.org/wp-content/uploads/2015/08/6.NAND1_.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-block text-right">
+                  <h5 style="color: black">STEP - 1</h5>
                 </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://www.electronicshub.org/wp-content/uploads/2015/08/7.NAND2_.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-block text-right">
+                  <h5 style="color: black">STEP - 2</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://www.electronicshub.org/wp-content/uploads/2015/08/8.NAND3_.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-block text-right">
+                  <h5 style="color: black">STEP - 3,4</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://www.electronicshub.org/wp-content/uploads/2015/08/10.NAND5_.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption d-block text-right">
+                  <h5></h5>
+                  <h5 style="color: black">STEP - 5</h5>
+                </div>
+              </div>
             </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
     <div class="col-lg-6 justify-content-center m-auto" id="posimp">
-        <h5 class="card-header shadow p-3 mb-2 bg-white rounded">SOP/POS implementation NOR gates</h5>
-        <div class="card m-3">
-            <div class="card-body">
-                <h6>Steps: </h6>
-                <ol>
-                    <li>First draw the circuit in SOP/POS form.</li>
-                    <li>Add the circle at the output of each OR gate and input of each AND gate.
-                    </li>
-                    <li>Add or Subtract an inverter on ecah line that recives a circle in step 2 or 3.</li>
-                    <li>Eleminate the double inversion.</li>
-                    <li>Replace all bubble AND gate with NOR gate.</li>
-                </ol>
-                <br>
-                <p><strong>Example - </strong></p>
-                <p>F = AC'+AB</p>
-                <br>
-                <img src="https://i.stack.imgur.com/OXeBd.png" class="card-img" alt="...">
-            </div>
+      <h5 class="card-header shadow p-3 mb-2 bg-white rounded" id="ch3_t5">
+        SOP/POS implementation NOR gates
+      </h5>
+      <div class="card m-3">
+        <div class="card-body">
+          <h6>Steps:</h6>
+          <ol>
+            <li>First draw the circuit in SOP/POS form.</li>
+            <li>
+              Add the circle at the output of each OR gate and input of each AND
+              gate.
+            </li>
+            <li>
+              Add or Subtract an inverter on ecah line that recives a circle in
+              step 2 or 3.
+            </li>
+            <li>Eleminate the double inversion.</li>
+            <li>Replace all bubble AND gate with NOR gate.</li>
+          </ol>
+          <br />
+          <p><strong>Example - </strong></p>
+          <p>F = AC'+AB</p>
+          <br />
+          <img
+            src="https://i.stack.imgur.com/OXeBd.png"
+            class="card-img"
+            alt="..."
+          />
         </div>
+      </div>
     </div>
 
     <script src="ch_3.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
